@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameControl : MonoBehaviour
 {
-    public static gameControl instance;
+    public static GameControl instance;
     public Text scoreText;
     public GameObject gameOvertext;
 
@@ -14,14 +17,18 @@ public class GameControl : MonoBehaviour
 
     void Awake()
     {
-        //If we dont currentyly hasave a game control...
+
         if (instance == null)
-            // ... set thsi one to be it
-            instance = this;
-        // otherwise
+
+        {
+        instance = this;
+        }
+        
         else if (instance != this)
-            //Destroy this one because it is a duplicate
+        {
             Destroy(gameObject);
+        }
+            
     }
 
     // Start is called before the first frame update
@@ -33,9 +40,26 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameOver == true && Input.GetMouseButtonDown (0)) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
-    //public void BirdDied()
+    public void BirdDied()
+    {
+        gameOvertext.SetActive(true);
+
+        gameOver = true;
+    }
+    public void BirdScored()
+    {
+        if (gameOver)
+        {
+            return;
+        }
+        score++;
+        scoreText.text = "Score:" + score.ToString ();
+    }
 
 }
