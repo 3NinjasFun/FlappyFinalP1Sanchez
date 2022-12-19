@@ -14,7 +14,7 @@ public class ColumnPool : MonoBehaviour
     private GameObject[] columns;
     private Vector2 objectPoolPosition = new Vector2(-15f, -25f);
     private float timeSinceLastSpawned;
-    private float spawnXPosition = 3f;
+    private float spawnXPosition = 4f;
     private int currentColumn = 0;
 
     // Start is called before the first frame update
