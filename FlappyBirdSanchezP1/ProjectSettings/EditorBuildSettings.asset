@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Birdie.unity
+    guid: 08beffa38f97598448a47530d9fabae2
   m_configObjects: {}
