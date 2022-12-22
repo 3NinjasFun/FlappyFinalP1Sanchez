@@ -23,13 +23,15 @@ public class Bird : MonoBehaviour
     {
         if (isDead == false)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
                anim.SetTrigger("Flap");
 
                 rb2d.velocity = Vector2.zero;
 
                 rb2d.AddForce(new Vector2(0, upForce));
+
+
             }
         }
     }
